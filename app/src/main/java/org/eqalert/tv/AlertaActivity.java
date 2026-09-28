@@ -1,6 +1,5 @@
 package org.eqalert.tv;
 
-import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -28,7 +27,11 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
-/** Pantalla completa de alerta roja: imagen que parpadea, sirena y voz. Se cierra con OK. */
+/**
+ * Pantalla completa de alerta: fondo rojo sólido (sin parpadeo, más ligero y sin riesgo para
+ * personas fotosensibles), un punto pequeño que respira para indicar "en vivo", sirena y voz.
+ * Se cierra con OK.
+ */
 public class AlertaActivity extends Activity {
     private static final long BLOQUEO_INICIAL_MS = 2500;
     private static final long CIERRE_AUTOMATICO_MS = 5 * 60 * 1000L;
@@ -38,6 +41,7 @@ public class AlertaActivity extends Activity {
     private TextToSpeech voz;
     private boolean vozLista;
     private ValueAnimator pulso;
+    private View puntoVivo;
     private int volumenAntes = -1;
     private float volumenSirena = 1f;
     private float volumenVoz = 1f;
@@ -117,6 +121,7 @@ public class AlertaActivity extends Activity {
 
     private void construirPantalla() {
         raiz = new FrameLayout(this);
+        // Fondo rojo sólido, sin animación: una sola pintada, sin costo de GPU en el tiempo.
         raiz.setBackgroundColor(Color.parseColor("#B71C1C"));
         LinearLayout col = new LinearLayout(this);
         col.setOrientation(LinearLayout.VERTICAL);
@@ -129,6 +134,30 @@ public class AlertaActivity extends Activity {
         prueba.setTextColor(Color.parseColor("#FFEB3B"));
         TextView titulo = texto(col, 46, true, 4);
         titulo.setText(R.string.alerta_titulo);
+
+        // Indicador "en vivo": un punto pequeño que respira. Solo esa área diminuta se
+        // redibuja, así que es mucho más liviano que animar toda la pantalla.
+        LinearLayout filaVivo = new LinearLayout(this);
+        filaVivo.setOrientation(LinearLayout.HORIZONTAL);
+        filaVivo.setGravity(Gravity.CENTER);
+        puntoVivo = new View(this);
+        puntoVivo.setBackground(getResources().getDrawable(R.drawable.punto_vivo));
+        LinearLayout.LayoutParams lpPunto = new LinearLayout.LayoutParams(dp(10), dp(10));
+        filaVivo.addView(puntoVivo, lpPunto);
+        TextView enVivo = new TextView(this);
+        enVivo.setText(R.string.alerta_en_vivo);
+        enVivo.setTextColor(Color.WHITE);
+        enVivo.setAlpha(0.85f);
+        enVivo.setTextSize(15);
+        LinearLayout.LayoutParams lpTexto = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        lpTexto.leftMargin = dp(8);
+        filaVivo.addView(enVivo, lpTexto);
+        LinearLayout.LayoutParams lpFila = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        lpFila.topMargin = dp(4);
+        col.addView(filaVivo, lpFila);
+
         magnitud = texto(col, 32, true, 10);
         cerca = texto(col, 22, false, 4);
         distancia = texto(col, 22, false, 2);
@@ -159,17 +188,21 @@ public class AlertaActivity extends Activity {
         fuente.setAlpha(0.8f);
         setContentView(raiz);
 
-        pulso = ValueAnimator.ofObject(new ArgbEvaluator(), Color.parseColor("#B71C1C"), Color.parseColor("#4A0A0A"));
-        pulso.setDuration(500);
+        pulso = ValueAnimator.ofFloat(1f, 0.35f);
+        pulso.setDuration(900);
         pulso.setRepeatMode(ValueAnimator.REVERSE);
         pulso.setRepeatCount(ValueAnimator.INFINITE);
         pulso.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator a) {
-                raiz.setBackgroundColor((Integer) a.getAnimatedValue());
+                puntoVivo.setAlpha((Float) a.getAnimatedValue());
             }
         });
         pulso.start();
+    }
+
+    private int dp(int valor) {
+        return Math.round(valor * getResources().getDisplayMetrics().density);
     }
 
     private void mostrar(Intent i) {

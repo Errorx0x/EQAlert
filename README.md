@@ -44,6 +44,15 @@ Requiere JDK 17 y Android SDK 35.
 ./gradlew :app:testDebugUnitTest
 ```
 
+## Diseño
+
+Interfaz minimalista y ligera a propósito:
+
+- **Sin XML ni imágenes de mapa de bits en las pantallas** (solo texto, formas planas e iconos vectoriales finos) — nada que decodificar ni mantener en memoria como bitmap.
+- **El monitoreo en segundo plano no dibuja nada**: `MonitorService` no tiene ventana ni vista, así que no consume GPU mientras la app no está abierta (comprobado con `dumpsys gfxinfo`: 0 fotogramas, 0% CPU en reposo).
+- **La pantalla de alerta no parpadea**: fondo rojo sólido de una sola pintada; solo un punto pequeño "en vivo" se anima, así que se redibuja un área mínima en vez de toda la pantalla. Más liviano y sin riesgo para personas fotosensibles.
+- Paleta de marca ErrorX0X (negro, vino, crema) con foco de mando marcado por una franja de color a la izquierda de cada fila, sin fondos ni bordes decorativos de más.
+
 ## Estructura
 
 | Archivo | Función |

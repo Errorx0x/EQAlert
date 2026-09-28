@@ -13,6 +13,7 @@
     <string name="canal_alerta">Earthquake alerts</string>
 
     <string name="alerta_titulo">EARTHQUAKE ALERT!</string>
+    <string name="alerta_en_vivo">Live monitoring</string>
     <string name="alerta_prueba">TEST · not a real earthquake</string>
     <string name="alerta_magnitud">Magnitude %1$.1f earthquake</string>
     <string name="alerta_cerca">Near: %1$s</string>
@@ -35,12 +36,15 @@
     <string name="prueba_en_10">The test alert will sound in 10 seconds. Leave the app or change channel to see it interrupt.</string>
     <string name="elegir_ubicacion">Where is this TV?</string>
     <string name="si">YES</string>
-    <string name="no">NO — select here to enable</string>
+    <string name="no">NO</string>
     <string name="en_linea">online</string>
     <string name="sin_respuesta">no response</string>
     <string name="estado_detenido">Monitoring stopped</string>
     <string name="estado_iniciando">Monitoring started, checking sources…</string>
     <string name="estado_fuentes">Monitoring · last check %1$s · USGS %2$s · EMSC %3$s</string>
+    <string name="seccion_ajustes">Settings</string>
+    <string name="sensibilidad_titulo">Red alert sensitivity</string>
+    <string name="permiso_titulo">Alert interrupts the screen</string>
     <string name="recientes_titulo">Recent earthquakes nearby (500 km)</string>
     <string name="sin_recientes">No recent earthquakes in the area.</string>
     <string name="linea_reciente">M%1$.1f · %2$s · %3$d km away · %4$s · shaking %5$s</string>
@@ -52,8 +56,8 @@
     <string name="aviso_legal">EQ Alert does not replace official alert systems or your country\'s civil protection. It uses public data from USGS and EMSC, which is published a few minutes after the earthquake, so the alert may arrive after the waves. If the TV enters deep standby, monitoring stops.</string>
 
     <string-array name="sensibilidades">
-        <item>Low (very strong earthquakes only)</item>
+        <item>Low</item>
         <item>Normal</item>
-        <item>High (warns earlier)</item>
+        <item>High</item>
     </string-array>
 </resources>

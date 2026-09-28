@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Paleta ErrorX0X: negro, vino, crema. Minimalista, pocos colores. -->
+    <color name="bg">#0B0909</color>
+    <color name="texto">#EEE8E2</color>
+    <color name="texto_tenue">#8C8580</color>
+    <color name="divisor">#211B19</color>
+    <color name="acento">#6B0E26</color>
+    <color name="acento_fondo">#241015</color>
+    <color name="peligro">#B71C1C</color>
+</resources>

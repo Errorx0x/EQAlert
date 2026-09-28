@@ -34,7 +34,10 @@ import java.util.Locale;
  */
 public class AlertaActivity extends Activity {
     private static final long BLOQUEO_INICIAL_MS = 2500;
-    private static final long CIERRE_AUTOMATICO_MS = 5 * 60 * 1000L;
+    /** Alerta real: insiste varios minutos, a propósito, para que no se ignore por accidente. */
+    private static final long CIERRE_AUTOMATICO_REAL_MS = 5 * 60 * 1000L;
+    /** Prueba: se corta sola pronto, para que nunca quede sonando de fondo si algo falla. */
+    private static final long CIERRE_AUTOMATICO_PRUEBA_MS = 30 * 1000L;
 
     private final Handler h = new Handler(Looper.getMainLooper());
     private AudioTrack sirena;
@@ -46,6 +49,7 @@ public class AlertaActivity extends Activity {
     private float volumenSirena = 1f;
     private float volumenVoz = 1f;
     private long inicio;
+    private Runnable cierreAutomatico;
     private FrameLayout raiz;
     private TextView prueba, magnitud, cerca, distancia, sacudida, llegada, consejo, fuente;
 
@@ -88,12 +92,19 @@ public class AlertaActivity extends Activity {
             }
         });
         h.postDelayed(hablar, 2000);
-        h.postDelayed(new Runnable() {
+        programarCierreAutomatico(getIntent().getBooleanExtra(MonitorService.EXTRA_PRUEBA, false));
+    }
+
+    private void programarCierreAutomatico(boolean esPrueba) {
+        if (cierreAutomatico != null) h.removeCallbacks(cierreAutomatico);
+        cierreAutomatico = new Runnable() {
             @Override
             public void run() {
+                detenerSonido();
                 finish();
             }
-        }, CIERRE_AUTOMATICO_MS);
+        };
+        h.postDelayed(cierreAutomatico, esPrueba ? CIERRE_AUTOMATICO_PRUEBA_MS : CIERRE_AUTOMATICO_REAL_MS);
     }
 
     @Override
@@ -103,6 +114,7 @@ public class AlertaActivity extends Activity {
         inicio = System.currentTimeMillis();
         quitarNotificacion();
         aplicarVolumen(intent.getBooleanExtra(MonitorService.EXTRA_PRUEBA, false));
+        programarCierreAutomatico(intent.getBooleanExtra(MonitorService.EXTRA_PRUEBA, false));
         mostrar(intent);
     }
 
@@ -182,7 +194,14 @@ public class AlertaActivity extends Activity {
                 intentarCerrar();
             }
         });
-        cerrar.requestFocus();
+        // requestFocus() antes de que la vista termine su primer layout no siempre "prende" el
+        // resaltado del foco en algunos televisores; post() lo pide justo después, ya asentado.
+        cerrar.post(new Runnable() {
+            @Override
+            public void run() {
+                cerrar.requestFocus();
+            }
+        });
 
         fuente = texto(col, 15, false, 10);
         fuente.setAlpha(0.8f);
@@ -238,7 +257,23 @@ public class AlertaActivity extends Activity {
 
     private void intentarCerrar() {
         if (System.currentTimeMillis() - inicio < BLOQUEO_INICIAL_MS) return;
+        // Corta la sirena y la voz de inmediato, sin esperar a que la actividad termine de
+        // cerrarse: si por lo que sea finish()/onDestroy() se retrasan o no llegan a correr,
+        // el sonido no debe quedar pegado.
+        detenerSonido();
         finish();
+    }
+
+    /** Silencia de inmediato. Segura de llamar más de una vez (por ejemplo, desde onDestroy). */
+    private void detenerSonido() {
+        h.removeCallbacks(hablar);
+        if (sirena != null) {
+            try {
+                sirena.stop();
+            } catch (IllegalStateException ignorada) {
+            }
+        }
+        if (voz != null) voz.stop();
     }
 
     @Override
@@ -300,13 +335,8 @@ public class AlertaActivity extends Activity {
     protected void onDestroy() {
         h.removeCallbacksAndMessages(null);
         if (pulso != null) pulso.cancel();
-        if (sirena != null) {
-            try {
-                sirena.stop();
-            } catch (IllegalStateException ignorada) {
-            }
-            sirena.release();
-        }
+        detenerSonido();
+        if (sirena != null) sirena.release();
         if (voz != null) voz.shutdown();
         if (volumenAntes >= 0) {
             ((AudioManager) getSystemService(Context.AUDIO_SERVICE))

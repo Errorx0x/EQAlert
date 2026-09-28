@@ -1,4 +1,4 @@
-package org.alertasismica.tv;
+package org.eqalert.tv;
 
 /** Un sismo publicado por una fuente oficial. */
 final class Sismo {

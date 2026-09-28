@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Alerta Sísmica</string>
+    <string name="app_name">EQ Alert</string>
 
     <string name="notif_iniciando">Iniciando vigilancia…</string>
     <string name="notif_vigilando">Vigilando: %1$s · última consulta %2$s</string>
@@ -49,7 +49,7 @@
     <string name="lugar_prueba">Costa sur (simulacro)</string>
     <string name="permiso_manual_titulo">Permiso no disponible en este televisor</string>
     <string name="permiso_manual">Este televisor no muestra la pantalla de ese permiso. Actívalo desde un computador con:\n\nadb shell appops set %1$s SYSTEM_ALERT_WINDOW allow</string>
-    <string name="aviso_legal">Alerta Sísmica no sustituye a los sistemas oficiales de alerta ni a la protección civil de tu país. Usa datos públicos de USGS y EMSC, que publican unos minutos después del sismo, así que la alerta puede llegar cuando las ondas ya llegaron. Si el televisor está en reposo profundo, la vigilancia se detiene.</string>
+    <string name="aviso_legal">EQ Alert no sustituye a los sistemas oficiales de alerta ni a la protección civil de tu país. Usa datos públicos de USGS y EMSC, que publican unos minutos después del sismo, así que la alerta puede llegar cuando las ondas ya llegaron. Si el televisor está en reposo profundo, la vigilancia se detiene.</string>
 
     <string-array name="sensibilidades">
         <item>Baja (solo sismos muy fuertes)</item>

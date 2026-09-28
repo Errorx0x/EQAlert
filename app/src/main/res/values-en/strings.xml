@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Quake Alert</string>
+    <string name="app_name">EQ Alert</string>
 
     <string name="notif_iniciando">Starting monitoring…</string>
     <string name="notif_vigilando">Monitoring: %1$s · last check %2$s</string>
@@ -49,7 +49,7 @@
     <string name="lugar_prueba">Southern coast (drill)</string>
     <string name="permiso_manual_titulo">Permission screen not available on this TV</string>
     <string name="permiso_manual">This TV does not show that permission screen. Enable it from a computer with:\n\nadb shell appops set %1$s SYSTEM_ALERT_WINDOW allow</string>
-    <string name="aviso_legal">Quake Alert does not replace official alert systems or your country\'s civil protection. It uses public data from USGS and EMSC, which is published a few minutes after the earthquake, so the alert may arrive after the waves. If the TV enters deep standby, monitoring stops.</string>
+    <string name="aviso_legal">EQ Alert does not replace official alert systems or your country\'s civil protection. It uses public data from USGS and EMSC, which is published a few minutes after the earthquake, so the alert may arrive after the waves. If the TV enters deep standby, monitoring stops.</string>
 
     <string-array name="sensibilidades">
         <item>Low (very strong earthquakes only)</item>

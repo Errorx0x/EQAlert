@@ -1,4 +1,4 @@
-package org.alertasismica.tv;
+package org.eqalert.tv;
 
 /**
  * Estima qué tan fuerte se sentiría un sismo en la ubicación del televisor.

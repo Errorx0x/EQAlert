@@ -1,10 +1,10 @@
 plugins { id 'com.android.application' }
 android {
-    namespace 'org.alertasismica.tv'
+    namespace 'org.eqalert.tv'
     compileSdk 35
     buildToolsVersion "35.0.0"
     defaultConfig {
-        applicationId 'org.alertasismica.tv'
+        applicationId 'org.eqalert.tv'
         minSdk 21
         targetSdk 35
         versionCode 1

@@ -1,4 +1,4 @@
-package org.alertasismica.tv;
+package org.eqalert.tv;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

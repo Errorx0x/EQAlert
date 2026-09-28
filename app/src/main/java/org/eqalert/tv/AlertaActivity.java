@@ -1,4 +1,4 @@
-package org.alertasismica.tv;
+package org.eqalert.tv;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;

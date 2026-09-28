@@ -1,4 +1,4 @@
-package org.alertasismica.tv;
+package org.eqalert.tv;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -39,7 +39,7 @@ public class MonitorService extends Service {
     static final String EXTRA_TIEMPO = "tiempo";
     static final String EXTRA_FUENTE = "fuente";
     static final String EXTRA_PRUEBA = "prueba";
-    static final String ACCION_PRUEBA = "org.alertasismica.tv.PRUEBA";
+    static final String ACCION_PRUEBA = "org.eqalert.tv.PRUEBA";
 
     private static final String CANAL_ESTADO = "estado";
     private static final String CANAL_ALERTA = "alerta";
@@ -72,11 +72,11 @@ public class MonitorService extends Service {
         super.onCreate();
         crearCanales();
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "alertasismica:vigilancia");
+        cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "eqalert:vigilancia");
         cpu.acquire();
         WifiManager wm = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         if (wm != null) {
-            wifi = wm.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, "alertasismica:vigilancia");
+            wifi = wm.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, "eqalert:vigilancia");
             wifi.acquire();
         }
         hilo = new HandlerThread("vigilancia");

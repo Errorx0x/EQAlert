@@ -1,4 +1,4 @@
-package org.alertasismica.tv;
+package org.eqalert.tv;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package org.alertasismica.tv;
+package org.eqalert.tv;
 
 /** Ciudades del Caribe para elegir la ubicación del televisor (los televisores no tienen GPS). */
 final class Lugares {

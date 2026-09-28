@@ -1,4 +1,4 @@
-# Alerta Sísmica TV (Quake Alert)
+# EQ Alert
 
 App gratuita y de código abierto para televisores Android (Google TV, Android TV, Sony, Philips, TCL, Hisense, Fire TV). Vigila sismos en segundo plano y, si uno alcanza **alerta roja cerca de tu ubicación**, interrumpe lo que estés viendo con una pantalla roja a pantalla completa, sirena y voz.
 
@@ -20,7 +20,7 @@ Región inicial: **Caribe** (República Dominicana, Puerto Rico, Haití, Cuba, J
 2. Abre la app y elige la ciudad donde está el televisor (los televisores no tienen GPS).
 3. Activa **"Permitir que la alerta interrumpa la pantalla"**. Si tu televisor no muestra esa pantalla:
    ```
-   adb shell appops set org.alertasismica.tv SYSTEM_ALERT_WINDOW allow
+   adb shell appops set org.eqalert.tv SYSTEM_ALERT_WINDOW allow
    ```
 4. Pulsa **"Probar la alerta en 10 segundos"** y sal de la app para ver cómo interrumpe. La prueba suena muy bajito a propósito; la alerta real usa el 85 % del volumen de alarma.
 

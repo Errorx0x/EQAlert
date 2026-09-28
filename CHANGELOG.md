@@ -1,5 +1,7 @@
 # Cambios
 
+> El proyecto se llamó "Alerta Sísmica TV" durante el desarrollo inicial; el nombre público es **EQ Alert** desde el primer lanzamiento.
+
 ## 0.1.0 · 2026-09-28
 Primera versión.
 - Vigilancia en segundo plano con USGS y EMSC cada 30 s.

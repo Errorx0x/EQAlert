@@ -1,4 +1,4 @@
-package org.alertasismica.tv;
+package org.eqalert.tv;
 
 import android.content.Context;
 import android.content.SharedPreferences;

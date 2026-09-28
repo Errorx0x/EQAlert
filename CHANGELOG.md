@@ -7,4 +7,4 @@ Primera versión.
 - Región inicial: Caribe (37 ciudades). Interfaz en español e inglés.
 - Prueba de alerta en 10 segundos, casi en silencio.
 - Arranque automático al encender el televisor.
-- Verificada en el emulador de Google TV (Android 11). Sin probar todavía en un televisor real.
+- Verificada en el emulador de Google TV (Android 11) y en un Fire TV Stick (Android 9): la alerta aparece a pantalla completa sobre otra app a los 10 s y se cierra con OK. La sirena real no se probó en el televisor por ser de noche.

@@ -31,7 +31,7 @@
     <string name="boton_ubicacion">Cambiar ubicación</string>
     <string name="boton_sensibilidad">Sensibilidad de la alerta roja: %1$s</string>
     <string name="boton_permiso">Permitir que la alerta interrumpa la pantalla: %1$s</string>
-    <string name="boton_probar">Probar la alerta en 10 segundos (con sirena)</string>
+    <string name="boton_probar">Probar la alerta en 10 segundos (muy bajito)</string>
     <string name="prueba_en_10">La alerta de prueba sonará en 10 segundos. Sal de la app o cambia de canal para ver cómo interrumpe.</string>
     <string name="elegir_ubicacion">¿Dónde está este televisor?</string>
     <string name="si">SÍ</string>

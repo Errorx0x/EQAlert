@@ -26,6 +26,7 @@ Región inicial: **Caribe** (República Dominicana, Puerto Rico, Haití, Cuba, J
 
 ## Límites conocidos
 
+- **Volumen final:** la sirena sube el volumen de alarma del dispositivo, pero en un Fire TV Stick u otro receptor HDMI el volumen real lo decide el televisor. Si el televisor está en silencio o muy bajo, la sirena sonará poco; la pantalla roja sí aparece.
 - **Reposo profundo:** si el televisor se apaga del todo (standby real), el sistema corta la red y la app no puede despertarlo. Funciona con el televisor encendido y en el reposo ligero que mantiene el Wi-Fi.
 - **Samsung (Tizen) y LG (webOS)** necesitan apps aparte; aún no existen.
 - La intensidad es una **estimación sencilla** basada en magnitud, profundidad y distancia, no un mapa oficial de sacudida.

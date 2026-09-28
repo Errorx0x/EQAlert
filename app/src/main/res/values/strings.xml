@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Alerta Sísmica</string>
+
+    <string name="notif_iniciando">Iniciando vigilancia…</string>
+    <string name="notif_vigilando">Vigilando: %1$s · última consulta %2$s</string>
+    <string name="notif_sin_conexion">Sin conexión con las fuentes oficiales</string>
+    <string name="notif_sismo">Sismo de magnitud %1$.1f a %2$d km</string>
+    <string name="notif_sismo_intensidad">Magnitud %1$.1f a %2$d km · sacudida estimada %3$s</string>
+    <string name="aviso_naranja">Sismo moderado cerca</string>
+    <string name="aviso_informativo">Sismo sentido en la zona</string>
+    <string name="canal_estado">Estado de la vigilancia</string>
+    <string name="canal_alerta">Alertas de sismo</string>
+
+    <string name="alerta_titulo">¡ALERTA SÍSMICA!</string>
+    <string name="alerta_prueba">PRUEBA · no es un sismo real</string>
+    <string name="alerta_magnitud">Sismo de magnitud %1$.1f</string>
+    <string name="alerta_cerca">Cerca de: %1$s</string>
+    <string name="alerta_distancia">A unos %1$d km de tu ubicación</string>
+    <string name="alerta_sacudida">Sacudida estimada aquí: intensidad %1$s</string>
+    <string name="alerta_llegada">Las ondas fuertes llegarían en unos %1$d s</string>
+    <string name="alerta_hace">El sismo ocurrió hace %1$d min</string>
+    <string name="alerta_consejo">AGÁCHATE · CÚBRETE · SUJÉTATE</string>
+    <string name="alerta_detalle">Aléjate de ventanas y de objetos que puedan caer.</string>
+    <string name="alerta_cerrar">Cerrar alerta (OK)</string>
+    <string name="alerta_fuente">Fuente: %1$s · estimación aproximada. Sigue las indicaciones de las autoridades.</string>
+    <string name="alerta_voz">Alerta de sismo. Agáchese, cúbrase y sujétese.</string>
+
+    <string name="ubicacion_actual">Ubicación: %1$s</string>
+    <string name="sin_ubicacion">Elige tu ubicación para empezar la vigilancia</string>
+    <string name="boton_ubicacion">Cambiar ubicación</string>
+    <string name="boton_sensibilidad">Sensibilidad de la alerta roja: %1$s</string>
+    <string name="boton_permiso">Permitir que la alerta interrumpa la pantalla: %1$s</string>
+    <string name="boton_probar">Probar la alerta en 10 segundos (con sirena)</string>
+    <string name="prueba_en_10">La alerta de prueba sonará en 10 segundos. Sal de la app o cambia de canal para ver cómo interrumpe.</string>
+    <string name="elegir_ubicacion">¿Dónde está este televisor?</string>
+    <string name="si">SÍ</string>
+    <string name="no">NO — toca aquí para activarlo</string>
+    <string name="en_linea">en línea</string>
+    <string name="sin_respuesta">sin respuesta</string>
+    <string name="estado_detenido">Vigilancia detenida</string>
+    <string name="estado_iniciando">Vigilancia iniciada, consultando fuentes…</string>
+    <string name="estado_fuentes">Vigilando · última consulta %1$s · USGS %2$s · EMSC %3$s</string>
+    <string name="recientes_titulo">Sismos recientes cerca (500 km)</string>
+    <string name="sin_recientes">Sin sismos recientes en la zona.</string>
+    <string name="linea_reciente">M%1$.1f · %2$s · a %3$d km · %4$s · sacudida %5$s</string>
+    <string name="hace_min">hace %1$d min</string>
+    <string name="hace_horas">hace %1$d h</string>
+    <string name="lugar_prueba">Costa sur (simulacro)</string>
+    <string name="permiso_manual_titulo">Permiso no disponible en este televisor</string>
+    <string name="permiso_manual">Este televisor no muestra la pantalla de ese permiso. Actívalo desde un computador con:\n\nadb shell appops set %1$s SYSTEM_ALERT_WINDOW allow</string>
+    <string name="aviso_legal">Alerta Sísmica no sustituye a los sistemas oficiales de alerta ni a la protección civil de tu país. Usa datos públicos de USGS y EMSC, que publican unos minutos después del sismo, así que la alerta puede llegar cuando las ondas ya llegaron. Si el televisor está en reposo profundo, la vigilancia se detiene.</string>
+
+    <string-array name="sensibilidades">
+        <item>Baja (solo sismos muy fuertes)</item>
+        <item>Normal</item>
+        <item>Alta (avisa antes)</item>
+    </string-array>
+</resources>

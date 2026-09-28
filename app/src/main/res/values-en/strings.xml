@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quake Alert</string>
+
+    <string name="notif_iniciando">Starting monitoring…</string>
+    <string name="notif_vigilando">Monitoring: %1$s · last check %2$s</string>
+    <string name="notif_sin_conexion">No connection to the official sources</string>
+    <string name="notif_sismo">Magnitude %1$.1f earthquake, %2$d km away</string>
+    <string name="notif_sismo_intensidad">Magnitude %1$.1f, %2$d km away · estimated shaking %3$s</string>
+    <string name="aviso_naranja">Moderate earthquake nearby</string>
+    <string name="aviso_informativo">Earthquake felt in the area</string>
+    <string name="canal_estado">Monitoring status</string>
+    <string name="canal_alerta">Earthquake alerts</string>
+
+    <string name="alerta_titulo">EARTHQUAKE ALERT!</string>
+    <string name="alerta_prueba">TEST · not a real earthquake</string>
+    <string name="alerta_magnitud">Magnitude %1$.1f earthquake</string>
+    <string name="alerta_cerca">Near: %1$s</string>
+    <string name="alerta_distancia">About %1$d km from your location</string>
+    <string name="alerta_sacudida">Estimated shaking here: intensity %1$s</string>
+    <string name="alerta_llegada">Strong waves would arrive in about %1$d s</string>
+    <string name="alerta_hace">The earthquake happened %1$d min ago</string>
+    <string name="alerta_consejo">DROP · COVER · HOLD ON</string>
+    <string name="alerta_detalle">Stay away from windows and objects that could fall.</string>
+    <string name="alerta_cerrar">Dismiss alert (OK)</string>
+    <string name="alerta_fuente">Source: %1$s · approximate estimate. Follow the instructions of the authorities.</string>
+    <string name="alerta_voz">Earthquake alert. Drop, cover and hold on.</string>
+
+    <string name="ubicacion_actual">Location: %1$s</string>
+    <string name="sin_ubicacion">Choose your location to start monitoring</string>
+    <string name="boton_ubicacion">Change location</string>
+    <string name="boton_sensibilidad">Red alert sensitivity: %1$s</string>
+    <string name="boton_permiso">Let the alert interrupt the screen: %1$s</string>
+    <string name="boton_probar">Test the alert in 10 seconds (very quiet)</string>
+    <string name="prueba_en_10">The test alert will sound in 10 seconds. Leave the app or change channel to see it interrupt.</string>
+    <string name="elegir_ubicacion">Where is this TV?</string>
+    <string name="si">YES</string>
+    <string name="no">NO — select here to enable</string>
+    <string name="en_linea">online</string>
+    <string name="sin_respuesta">no response</string>
+    <string name="estado_detenido">Monitoring stopped</string>
+    <string name="estado_iniciando">Monitoring started, checking sources…</string>
+    <string name="estado_fuentes">Monitoring · last check %1$s · USGS %2$s · EMSC %3$s</string>
+    <string name="recientes_titulo">Recent earthquakes nearby (500 km)</string>
+    <string name="sin_recientes">No recent earthquakes in the area.</string>
+    <string name="linea_reciente">M%1$.1f · %2$s · %3$d km away · %4$s · shaking %5$s</string>
+    <string name="hace_min">%1$d min ago</string>
+    <string name="hace_horas">%1$d h ago</string>
+    <string name="lugar_prueba">Southern coast (drill)</string>
+    <string name="permiso_manual_titulo">Permission screen not available on this TV</string>
+    <string name="permiso_manual">This TV does not show that permission screen. Enable it from a computer with:\n\nadb shell appops set %1$s SYSTEM_ALERT_WINDOW allow</string>
+    <string name="aviso_legal">Quake Alert does not replace official alert systems or your country\'s civil protection. It uses public data from USGS and EMSC, which is published a few minutes after the earthquake, so the alert may arrive after the waves. If the TV enters deep standby, monitoring stops.</string>
+
+    <string-array name="sensibilidades">
+        <item>Low (very strong earthquakes only)</item>
+        <item>Normal</item>
+        <item>High (warns earlier)</item>
+    </string-array>
+</resources>

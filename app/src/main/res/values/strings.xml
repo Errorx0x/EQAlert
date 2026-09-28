@@ -15,13 +15,12 @@
     <string name="alerta_titulo">¡ALERTA SÍSMICA!</string>
     <string name="alerta_en_vivo">Monitoreo en vivo</string>
     <string name="alerta_prueba">PRUEBA · no es un sismo real</string>
-    <string name="alerta_magnitud">Sismo de magnitud %1$.1f</string>
-    <string name="alerta_cerca">Cerca de: %1$s</string>
-    <string name="alerta_distancia">A unos %1$d km de tu ubicación</string>
+    <string name="alerta_resumen">M%1$.1f · a %2$d km · %3$s</string>
+    <string name="alerta_resumen_sin_lugar">M%1$.1f · a %2$d km de tu ubicación</string>
     <string name="alerta_sacudida">Sacudida estimada aquí: intensidad %1$s</string>
     <string name="alerta_llegada">Las ondas fuertes llegarían en unos %1$d s</string>
-    <string name="alerta_hace">El sismo ocurrió hace %1$d min</string>
     <string name="alerta_consejo">AGÁCHATE · CÚBRETE · SUJÉTATE</string>
+    <string name="alerta_consejo_universal">Recomendación de protección civil</string>
     <string name="alerta_detalle">Aléjate de ventanas y de objetos que puedan caer.</string>
     <string name="alerta_cerrar">Cerrar alerta (OK)</string>
     <string name="alerta_fuente">Fuente: %1$s · estimación aproximada. Sigue las indicaciones de las autoridades.</string>
@@ -34,7 +33,6 @@
     <string name="boton_permiso">Permitir que la alerta interrumpa la pantalla: %1$s</string>
     <string name="boton_probar">Probar la alerta en 10 segundos (muy bajito)</string>
     <string name="prueba_en_10">La alerta de prueba sonará en 10 segundos. Sal de la app o cambia de canal para ver cómo interrumpe.</string>
-    <string name="elegir_ubicacion">¿Dónde está este televisor?</string>
     <string name="si">SÍ</string>
     <string name="no">NO</string>
     <string name="en_linea">en línea</string>
@@ -42,6 +40,18 @@
     <string name="estado_detenido">Vigilancia detenida</string>
     <string name="estado_iniciando">Vigilancia iniciada, consultando fuentes…</string>
     <string name="estado_fuentes">Vigilando · última consulta %1$s · USGS %2$s · EMSC %3$s</string>
+    <string name="detectando_pais">Detectando tu país por la conexión a internet…</string>
+    <string name="elegir_pais_titulo">¿En qué país está este televisor?</string>
+    <string name="elegir_ciudad_titulo">%1$s — elige la ciudad</string>
+    <string name="cambiar_pais">Cambiar país</string>
+
+    <string name="agencia_do">Protocolo del COE (Centro de Operaciones de Emergencias)</string>
+    <string name="agencia_pr">Protocolo de la Red Sísmica de Puerto Rico</string>
+    <string name="agencia_ht">Recomendación de la Direction de la Protection Civile</string>
+    <string name="agencia_cu">Recomendación de la Defensa Civil</string>
+    <string name="agencia_jm">Protocolo del ODPEM (Office of Disaster Preparedness and Emergency Management)</string>
+    <string name="agencia_vi">Protocolo de VITEMA (Virgin Islands Territorial Emergency Management Agency)</string>
+
     <string name="seccion_ajustes">Ajustes</string>
     <string name="sensibilidad_titulo">Sensibilidad de alerta roja</string>
     <string name="permiso_titulo">Alerta interrumpe la pantalla</string>

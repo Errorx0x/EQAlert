@@ -18,6 +18,7 @@ Región inicial: **Caribe** (República Dominicana, Puerto Rico, Haití, Cuba, J
 
 1. Instala el APK firmado (por ejemplo con Downloader o `adb install`). Huella SHA-256 del certificado: `4fdf0db7c4b407959b0d4281771a4698fe14436fe0e7e1ea18e3ce0a0405a487`.
 2. Abre la app y elige la ciudad donde está el televisor (los televisores no tienen GPS).
+2b. La app adivina el país por tu conexión a internet (sin GPS ni permisos) y te lleva directo a elegir la ciudad; si falla o el país no está en la lista, puedes elegirlo a mano con "Cambiar país". La pantalla de alerta muestra la recomendación oficial de protección civil de ese país (COE, PRSN, ODPEM, VITEMA, Defensa Civil o DGPC según corresponda), además de la acción universal: agáchate, cúbrete y sujétate.
 3. Activa **"Permitir que la alerta interrumpa la pantalla"**. Si tu televisor no muestra esa pantalla:
    ```
    adb shell appops set org.eqalert.tv SYSTEM_ALERT_WINDOW allow

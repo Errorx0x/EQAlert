@@ -15,13 +15,12 @@
     <string name="alerta_titulo">EARTHQUAKE ALERT!</string>
     <string name="alerta_en_vivo">Live monitoring</string>
     <string name="alerta_prueba">TEST · not a real earthquake</string>
-    <string name="alerta_magnitud">Magnitude %1$.1f earthquake</string>
-    <string name="alerta_cerca">Near: %1$s</string>
-    <string name="alerta_distancia">About %1$d km from your location</string>
+    <string name="alerta_resumen">M%1$.1f · %2$d km away · %3$s</string>
+    <string name="alerta_resumen_sin_lugar">M%1$.1f · %2$d km from your location</string>
     <string name="alerta_sacudida">Estimated shaking here: intensity %1$s</string>
     <string name="alerta_llegada">Strong waves would arrive in about %1$d s</string>
-    <string name="alerta_hace">The earthquake happened %1$d min ago</string>
     <string name="alerta_consejo">DROP · COVER · HOLD ON</string>
+    <string name="alerta_consejo_universal">Civil protection recommendation</string>
     <string name="alerta_detalle">Stay away from windows and objects that could fall.</string>
     <string name="alerta_cerrar">Dismiss alert (OK)</string>
     <string name="alerta_fuente">Source: %1$s · approximate estimate. Follow the instructions of the authorities.</string>
@@ -34,7 +33,6 @@
     <string name="boton_permiso">Let the alert interrupt the screen: %1$s</string>
     <string name="boton_probar">Test the alert in 10 seconds (very quiet)</string>
     <string name="prueba_en_10">The test alert will sound in 10 seconds. Leave the app or change channel to see it interrupt.</string>
-    <string name="elegir_ubicacion">Where is this TV?</string>
     <string name="si">YES</string>
     <string name="no">NO</string>
     <string name="en_linea">online</string>
@@ -42,6 +40,18 @@
     <string name="estado_detenido">Monitoring stopped</string>
     <string name="estado_iniciando">Monitoring started, checking sources…</string>
     <string name="estado_fuentes">Monitoring · last check %1$s · USGS %2$s · EMSC %3$s</string>
+    <string name="detectando_pais">Detecting your country from your internet connection…</string>
+    <string name="elegir_pais_titulo">Which country is this TV in?</string>
+    <string name="elegir_ciudad_titulo">%1$s — choose the city</string>
+    <string name="cambiar_pais">Change country</string>
+
+    <string name="agencia_do">COE (Centro de Operaciones de Emergencias) protocol</string>
+    <string name="agencia_pr">Puerto Rico Seismic Network protocol</string>
+    <string name="agencia_ht">Direction de la Protection Civile recommendation</string>
+    <string name="agencia_cu">Defensa Civil recommendation</string>
+    <string name="agencia_jm">ODPEM (Office of Disaster Preparedness and Emergency Management) protocol</string>
+    <string name="agencia_vi">VITEMA (Virgin Islands Territorial Emergency Management Agency) protocol</string>
+
     <string name="seccion_ajustes">Settings</string>
     <string name="sensibilidad_titulo">Red alert sensitivity</string>
     <string name="permiso_titulo">Alert interrupts the screen</string>

@@ -2,7 +2,6 @@ package org.eqalert.tv;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -69,7 +68,7 @@ public class PrincipalActivity extends Activity {
         filaLugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                elegirLugar();
+                startActivity(new Intent(PrincipalActivity.this, UbicacionActivity.class));
             }
         });
         filaSensibilidad = fila(col, R.drawable.ic_gauge, R.string.sensibilidad_titulo, null);
@@ -117,7 +116,7 @@ public class PrincipalActivity extends Activity {
     protected void onResume() {
         super.onResume();
         if (!Prefs.hayUbicacion(this)) {
-            elegirLugar();
+            startActivity(new Intent(this, UbicacionActivity.class));
         } else {
             iniciarServicio();
         }
@@ -189,22 +188,6 @@ public class PrincipalActivity extends Activity {
             }
         } catch (Exception ignorada) {
         }
-    }
-
-    private void elegirLugar() {
-        final String[] nombres = new String[Lugares.TODOS.length];
-        for (int i = 0; i < nombres.length; i++) nombres[i] = Lugares.TODOS[i].nombre;
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.elegir_ubicacion)
-                .setItems(nombres, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface d, int i) {
-                        Prefs.guardarUbicacion(PrincipalActivity.this, Lugares.TODOS[i]);
-                        iniciarServicio();
-                        actualizar();
-                    }
-                })
-                .show();
     }
 
     private boolean puedeMostrarSobreApps() {

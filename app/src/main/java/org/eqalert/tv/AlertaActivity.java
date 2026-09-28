@@ -51,7 +51,7 @@ public class AlertaActivity extends Activity {
     private long inicio;
     private Runnable cierreAutomatico;
     private FrameLayout raiz;
-    private TextView prueba, magnitud, cerca, distancia, sacudida, llegada, consejo, fuente;
+    private TextView prueba, resumen, sacudida, llegada, consejo, detalle, agencia, fuente;
 
     private final Runnable hablar = new Runnable() {
         @Override
@@ -144,7 +144,7 @@ public class AlertaActivity extends Activity {
 
         prueba = texto(col, 20, true, 0);
         prueba.setTextColor(Color.parseColor("#FFEB3B"));
-        TextView titulo = texto(col, 46, true, 4);
+        TextView titulo = texto(col, 52, true, 4);
         titulo.setText(R.string.alerta_titulo);
 
         // Indicador "en vivo": un punto pequeño que respira. Solo esa área diminuta se
@@ -170,15 +170,21 @@ public class AlertaActivity extends Activity {
         lpFila.topMargin = dp(4);
         col.addView(filaVivo, lpFila);
 
-        magnitud = texto(col, 32, true, 10);
-        cerca = texto(col, 22, false, 4);
-        distancia = texto(col, 22, false, 2);
-        sacudida = texto(col, 26, true, 10);
-        llegada = texto(col, 22, false, 4);
-        consejo = texto(col, 30, true, 14);
+        // Un resumen breve (magnitud + distancia en una sola línea) y la sacudida estimada:
+        // lo mínimo para entender qué pasa, sin llenar la pantalla de texto.
+        resumen = texto(col, 26, false, 18);
+        resumen.setAlpha(0.92f);
+        sacudida = texto(col, 24, true, 6);
+        llegada = texto(col, 18, false, 4);
+        llegada.setAlpha(0.85f);
+
+        // Lo que hay que HACER es lo más importante de la pantalla: el texto más grande de todos.
+        consejo = texto(col, 44, true, 22);
         consejo.setText(R.string.alerta_consejo);
-        TextView detalle = texto(col, 20, false, 4);
+        detalle = texto(col, 20, false, 6);
         detalle.setText(R.string.alerta_detalle);
+        agencia = texto(col, 15, false, 6);
+        agencia.setAlpha(0.8f);
 
         Button cerrar = new Button(this);
         cerrar.setText(R.string.alerta_cerrar);
@@ -235,17 +241,20 @@ public class AlertaActivity extends Activity {
 
         prueba.setText(esPrueba ? getString(R.string.alerta_prueba) : "");
         prueba.setVisibility(esPrueba ? View.VISIBLE : View.GONE);
-        magnitud.setText(getString(R.string.alerta_magnitud, mag));
-        cerca.setText(lugar == null || lugar.isEmpty() ? "" : getString(R.string.alerta_cerca, lugar));
-        distancia.setText(getString(R.string.alerta_distancia, Math.round(dist)));
+        resumen.setText(lugar == null || lugar.isEmpty()
+                ? getString(R.string.alerta_resumen_sin_lugar, mag, Math.round(dist))
+                : getString(R.string.alerta_resumen, mag, Math.round(dist), lugar));
         sacudida.setText(getString(R.string.alerta_sacudida, Evaluador.romano(mmi)));
         long ahora = System.currentTimeMillis();
         double falta = Evaluador.segundosHastaOndaS(dist, prof, t, ahora);
         if (falta > 1) {
             llegada.setText(getString(R.string.alerta_llegada, Math.round(falta)));
+            llegada.setVisibility(View.VISIBLE);
         } else {
-            llegada.setText(getString(R.string.alerta_hace, Math.max(0, (ahora - t) / 60000)));
+            llegada.setVisibility(View.GONE);
         }
+        Paises.Pais pais = Paises.porCodigo(Prefs.paisCodigo(this));
+        agencia.setText(pais != null ? getString(pais.agenciaId) : getString(R.string.alerta_consejo_universal));
         String f = i.getStringExtra(MonitorService.EXTRA_FUENTE);
         fuente.setText(getString(R.string.alerta_fuente, f == null ? "—" : f));
     }

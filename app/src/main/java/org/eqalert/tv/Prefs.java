@@ -33,9 +33,18 @@ final class Prefs {
         return sp(c).getString("lugar", "");
     }
 
-    static void guardarUbicacion(Context c, Lugares.Lugar l) {
-        sp(c).edit().putString("lat", String.valueOf(l.lat)).putString("lon", String.valueOf(l.lon))
-                .putString("lugar", l.nombre).apply();
+    /** Código ISO del país elegido (por ejemplo "DO"), o null si aún no se ha elegido ninguno. */
+    static String paisCodigo(Context c) {
+        return sp(c).getString("pais", null);
+    }
+
+    static void guardarUbicacion(Context c, Paises.Pais p, Paises.Ciudad ciudad) {
+        sp(c).edit()
+                .putString("lat", String.valueOf(ciudad.lat))
+                .putString("lon", String.valueOf(ciudad.lon))
+                .putString("lugar", p.nombre + " · " + ciudad.nombre)
+                .putString("pais", p.codigo)
+                .apply();
     }
 
     /** 0 baja, 1 normal, 2 alta. */

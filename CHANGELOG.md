@@ -1,5 +1,16 @@
 # Cambios
 
+## 1.0.0 · 2026-09-28
+Primera versión pensada para publicar.
+- Selección de ubicación propia (país → ciudad), con detección automática de país por IP.
+- Pantalla de alerta rediseñada: menos texto, la acción a seguir en letra más grande, y la
+  recomendación oficial de protección civil del país elegido.
+- Corrección de un fallo real: la sirena podía quedar sonando de fondo; ahora se corta al
+  instante al cerrar la alerta, y la prueba se apaga sola a los 30 s si no se toca nada.
+- Menú principal e interfaz rediseñados en minimalista, con la paleta de ErrorX0X.
+- Política de privacidad (`PRIVACY.md`) y materiales listos para publicar en tiendas de apps
+  (`store/`): icono, banner promocional y capturas reales del dispositivo.
+
 > El proyecto se llamó "Alerta Sísmica TV" durante el desarrollo inicial; el nombre público es **EQ Alert** desde el primer lanzamiento.
 
 ## 0.1.0 · 2026-09-28

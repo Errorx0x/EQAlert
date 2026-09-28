@@ -34,7 +34,44 @@ Región inicial: **Caribe** (República Dominicana, Puerto Rico, Haití, Cuba, J
 
 ## Estado
 
-Versión 0.1.0. Probada en el emulador de Google TV; falta probarla en televisores reales. Ver [CHANGELOG](CHANGELOG.md).
+Versión 1.0.0. Probada en el emulador de Google TV (Android 11) y en un Fire TV Stick real
+(Android 9): vigilancia, cambio de país/ciudad, alerta de prueba y cierre limpio verificados
+en dispositivo. Ver [CHANGELOG](CHANGELOG.md).
+
+## Publicar en tiendas de apps
+
+Lo que ya está listo en este repositorio:
+
+- ✅ `LICENSE` (Apache-2.0), [`PRIVACY.md`](PRIVACY.md) bilingüe, `CHANGELOG.md`, este README.
+- ✅ APK firmado con una llave propia (no depuración), `targetSdk 35` (el mínimo que piden las
+  tiendas hoy), sin errores de `lint`, con pruebas automáticas.
+- ✅ Icono de la app (vector, se ve nítido en cualquier tamaño) y banner de TV (320×180dp) en
+  `app/src/main/res/`.
+- ✅ Materiales para la ficha de la tienda en [`store/`](store/): icono de 512×512
+  (`icono-512.png`) y banner promocional de 1024×500 (`banner-promocional-1024x500.png`).
+- ✅ La app funciona igual si el usuario no concede el permiso de superposición: la alerta
+  también llega como notificación de pantalla completa (`USE_FULL_SCREEN_INTENT`), que no
+  necesita ese permiso en Android 10 o superior.
+
+Lo que falta y **solo lo puede hacer quien publique la app**, porque exige una cuenta de
+desarrollador propia (identidad, pago o impuestos, y formularios que Google/Amazon no dejan
+rellenar por API):
+
+- **Amazon Appstore (recomendado primero):** encaja mejor porque la app nace para Fire TV.
+  El registro de desarrollador es gratis. Hay que subir el APK, el icono y el banner de
+  `store/`, y responder el cuestionario de privacidad usando el contenido de `PRIVACY.md`
+  (una vez el repositorio esté público, la URL cruda de ese archivo en GitHub sirve como
+  enlace de política de privacidad).
+- **Google Play (Android TV / Google TV):** el registro cuesta 25 USD, de pago único. Aviso
+  importante: el permiso "mostrar sobre otras apps" (`SYSTEM_ALERT_WINDOW`) que usa esta app
+  para la alerta está entre los que Google revisa con más cuidado, y no siempre lo aprueba
+  para casos como este. Como la app ya funciona sin ese permiso gracias a la notificación de
+  pantalla completa, si Play lo rechaza se puede quitar esa única línea del manifiesto y volver
+  a enviarla sin perder la función principal.
+- El cuestionario de clasificación de contenido y el formulario de seguridad de datos
+  ("Data safety") de cada tienda los debe rellenar quien tenga la cuenta; el contenido de
+  `PRIVACY.md` tiene las respuestas (qué datos se usan, para qué, y que nunca se venden ni
+  comparten).
 
 ## Compilar
 
@@ -62,7 +99,11 @@ Interfaz minimalista y ligera a propósito:
 | `Fuentes` | Consultas a USGS y EMSC |
 | `Evaluador` | Distancia, intensidad estimada y niveles |
 | `AlertaActivity` | Pantalla roja, sirena y voz |
-| `PrincipalActivity` | Ubicación, sensibilidad, permiso y prueba |
+| `PrincipalActivity` | Menú principal: estado, ajustes y sismos recientes |
+| `UbicacionActivity` | Selección de país y ciudad, con detección por IP |
+| `Paises` | Datos de países y ciudades, y su agencia de protección civil |
+| `Geo` | Detección del país por la IP de la conexión |
+| `Prefs` | Todo lo que se guarda en el televisor |
 | `ArranqueReceiver` | Reanuda la vigilancia al encender |
 
 ## Licencia
